@@ -1,6 +1,6 @@
 # Paula’s Place energy notebook
 
-## [🌐 Open the live site: https://tidyweb.github.io/paulas-place-energy-dashboard/ ↗](https://tidyweb.github.io/paulas-place-energy-dashboard/)
+### [Visit the live site ↗](https://tidyweb.github.io/paulas-place-energy-dashboard/)
 
 
 A static, responsive dashboard for comparing provisional solar, battery and air-to-water heat-pump scenarios. No build step, account, API key or publication is needed.
