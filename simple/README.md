@@ -1,15 +1,16 @@
-# Paula's Place — simple dashboard
+# Welsh Energy — simple dashboard
 
 A big-block version of the energy dashboard. Tap the tiles; the bill, savings, sun share, payback and monthly chart update straight away.
 
 ## Run
 
+From the repository root, run:
+
 ```sh
-cd "/home/Phil/Codex-Projects/Paula's Place/Claude_dashboard"
 python3 -m http.server 8766 --bind 127.0.0.1
 ```
 
-Then open http://127.0.0.1:8766/
+Then open http://127.0.0.1:8766/simple/
 
 ## Files
 

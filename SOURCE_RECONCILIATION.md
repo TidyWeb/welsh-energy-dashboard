@@ -1,4 +1,4 @@
-# Source reconciliation for Paula’s Place
+# Source reconciliation for Welsh Energy
 
 This note separates the user’s current provisional property inputs from earlier resource data and modelling assumptions. It is an evidence record, not a site survey, installation design, grant decision or quotation. Original research files remain unchanged.
 

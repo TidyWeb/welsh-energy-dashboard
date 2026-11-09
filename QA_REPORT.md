@@ -6,7 +6,7 @@ Browser interaction suite passed 27 checks before the final capital correction. 
 
 Final capital correction: £5,000 all-in, explicitly supplied by Phil, replaces prior unsourced capital ranges and example-kit budgets. Live in-app preview verified £5,000, no grant deduction and calculated payback 5.5–5.6 years under the current model. JavaScript syntax check passed. Previous screenshots retain earlier development states; the live dashboard is authoritative.
 
-Review gate addition: Paula’s Place palette, supplied Borth-y-Gest background with CSS blur/saturation/contrast treatment, incorrect-password feedback, correct-password unlock, session reload persistence and keyboard focus transfer were checked over local HTTP. Gate and dashboard had no console errors or page overflow at 390, 768 or 1440 px.
+Review gate addition: Welsh Energy palette, supplied Borth-y-Gest background with CSS blur/saturation/contrast treatment, incorrect-password feedback, correct-password unlock, session reload persistence and keyboard focus transfer were checked over local HTTP. Gate and dashboard had no console errors or page overflow at 390, 768 or 1440 px.
 
 Dashboard switcher addition: the protected entry screen now reveals Complex dashboard and Simple dashboard choices after the shared password is accepted. The simple view is published at `/simple/`; both views carry a link to the other. Local HTTP preview checked the password failure state, successful choice reveal, simple-route navigation, reverse navigation to the complex view, simple-view data loading and no console errors.
 

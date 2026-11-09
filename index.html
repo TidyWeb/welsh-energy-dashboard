@@ -2,8 +2,8 @@
 <html lang="en-GB">
 <head>
   <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#183e3b"><meta name="description" content="A local solar, battery and heat-pump planning notebook for Paula's Place in Borth-y-Gest.">
-  <title>Paula’s Place · Energy notebook</title><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23183e3b'/%3E%3Ctext x='9' y='25' fill='%23fffef8' font-size='27' font-family='Georgia'%3EP%3C/text%3E%3C/svg%3E">
+  <meta name="theme-color" content="#183e3b"><meta name="description" content="Welsh Energy is a local solar, battery and heat-pump planning notebook for Borth-y-Gest.">
+  <title>Welsh Energy · Energy notebook</title><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23183e3b'/%3E%3Ctext x='9' y='25' fill='%23fffef8' font-size='27' font-family='Georgia'%3EW%3C/text%3E%3C/svg%3E">
   <link rel="stylesheet" href="vendor/leaflet.css"><link rel="stylesheet" href="styles.css">
   <script defer src="vendor/leaflet.js"></script><script type="module" src="app.js"></script>
 </head>
@@ -13,7 +13,7 @@
   <div class="privacy-wash" aria-hidden="true"></div>
   <section class="privacy-shell">
     <div class="privacy-panel">
-      <p class="privacy-eyebrow">Paula’s Place · private notebook</p>
+      <p class="privacy-eyebrow">Welsh Energy · private notebook</p>
       <h1 id="privacy-title">Energy planning notebook</h1>
       <p class="privacy-intro">Enter the review password, then choose the dashboard that suits the conversation.</p>
       <form id="privacy-form">
@@ -46,7 +46,7 @@
 </div>
 <div id="dashboard-app" data-locked="true" aria-hidden="true">
 <a class="skip" href="#main">Skip to the energy notebook</a>
-<header class="masthead"><a class="brand" href="#"><span class="brand-mark" aria-hidden="true">P<span>≈</span></span><span>Paula’s Place<small>BORTH-Y-GEST · NORTH WALES</small></span></a><nav aria-label="Notebook sections"><a href="#site">The site</a><a href="#energy">Energy</a><a href="#costs">Costs</a><a href="#next">Next steps</a><a class="view-switch" href="simple/">Simple view ↗</a></nav><div class="masthead-actions"><button type="button" class="quiet signout" data-signout>Back to sign-in</button><button id="reset" class="quiet">Reset to defaults ↺</button></div></header>
+<header class="masthead"><a class="brand" href="#"><span class="brand-mark" aria-hidden="true">W<span>≈</span></span><span>Welsh Energy<small>BORTH-Y-GEST · NORTH WALES</small></span></a><nav aria-label="Notebook sections"><a href="#site">The site</a><a href="#energy">Energy</a><a href="#costs">Costs</a><a href="#next">Next steps</a><a class="view-switch" href="simple/">Simple view ↗</a></nav><div class="masthead-actions"><button type="button" class="quiet signout" data-signout>Back to sign-in</button><button id="reset" class="quiet">Reset to defaults ↺</button></div></header>
 <main id="main">
 <section class="intro"><div><p class="eyebrow">A HOUSE BY THE SEA. A PLAN FOR ITS ENERGY.</p><h1>What could the sunshine do?</h1><p class="lede">Explore solar panels, battery storage and a possible heat pump for <strong>2 Mersey Street</strong>. Start with a tier, then change the assumptions together.</p></div><div class="edition"><span>FIELD NOTE / 01</span><strong>52.91556° N<br>4.13733° W</strong><small>Working front anchor · provisional<br>Planning notebook · September 2026</small></div></section>
 <div class="scope-note"><span class="dot"></span><p><strong>A comparison tool, with room for uncertainty.</strong> These are planning estimates, not an engineering design, planning approval, grant decision or quotation.</p></div>
@@ -70,11 +70,11 @@
 <details class="paper wind-panel"><summary>Optional wind screening <span>Not included in the totals</span></summary><p class="source-tag">Imported from project data · requires installer/site survey</p><p>The NASA regional 10 m wind series averages about 6.27 m/s. It does not tell us the wind at this roof, turbulence or turbine output. The project has no site-specific turbine power curve. Winter wind may complement solar, but a rooftop installation needs planning, structure, noise and maintenance assessment.</p><p><a href="https://www.gov.wales/planning-permission-wind-turbines" target="_blank" rel="noreferrer">Welsh Government planning guidance ↗</a></p></details>
 <details class="paper"><summary>Where the numbers come from</summary><p>Solar generation uses the saved PVGIS 1 kWp hourly profile for 2021–2023. It was downloaded at an older postcode point, with an optimum south-facing array. The front roof’s provisional southeast aspect is a screening adjustment, not a fresh PVGIS roof simulation.</p><p>“Measured/derived” here means calculated, not measured at the property. Inputs marked “Imported from project data” can themselves be modelled data or earlier assumptions. Costs are editable placeholders. No carbon figure is shown because no agreed emissions factor or counterfactual has been supplied.</p><p><a href="DATA_PROVENANCE.md">Data provenance & assumptions</a> · <a href="SOURCE_RECONCILIATION.md">Conflicts reconciled</a> · <a href="README.md">Run the notebook</a></p></details>
 </div></div>
-</main><footer><span>Paula’s Place <i>≈</i> Borth-y-Gest</span><span>Built for a conversation, before a commitment.</span></footer>
+</main><footer><span>Welsh Energy <i>≈</i> Borth-y-Gest</span><span>Built for a conversation, before a commitment.</span></footer>
 </div>
 <script>
   (() => {
-    const password = 'bemygirlxx';
+    const password = 'demo';
     const gate = document.getElementById('privacy-gate');
     const dashboard = document.getElementById('dashboard-app');
     const form = document.getElementById('privacy-form');
@@ -82,7 +82,7 @@
     const status = document.getElementById('privacy-status');
     const choices = [...document.querySelectorAll('[data-dashboard-route]')];
     const signoutButtons = [...document.querySelectorAll('[data-signout]')];
-    const storageKey = 'paulas-place-dashboard-unlocked';
+    const storageKey = 'welsh-energy-dashboard-unlocked';
 
     function unlock() {
       gate.hidden = true;

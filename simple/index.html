@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Paula’s Place · Sun & savings</title>
+<title>Welsh Energy · Sun & savings</title>
 <link rel="stylesheet" href="styles.css">
 <script type="module" src="app.js"></script>
 </head>
@@ -13,7 +13,7 @@
   <div class="privacy-wash" aria-hidden="true"></div>
   <section class="privacy-shell">
     <div class="privacy-panel">
-      <p class="privacy-eyebrow">Paula’s Place · private notebook</p>
+      <p class="privacy-eyebrow">Welsh Energy · private notebook</p>
       <h1 id="privacy-title">Energy planning notebook</h1>
       <p class="privacy-intro">Enter the review password, then choose the dashboard that suits the conversation.</p>
       <form id="privacy-form">
@@ -47,7 +47,7 @@
 <div id="dashboard-app" data-locked="true" aria-hidden="true">
 <header class="top">
   <div>
-    <h1>Paula’s Place</h1>
+    <h1>Welsh Energy</h1>
     <p>Tap the blocks. Watch the numbers change.</p>
   </div>
   <div class="top-actions">
@@ -159,7 +159,7 @@
 </div>
 <script>
   (() => {
-    const password = 'bemygirlxx';
+    const password = 'demo';
     const gate = document.getElementById('privacy-gate');
     const dashboard = document.getElementById('dashboard-app');
     const form = document.getElementById('privacy-form');
@@ -167,7 +167,7 @@
     const status = document.getElementById('privacy-status');
     const choices = [...document.querySelectorAll('[data-dashboard-route]')];
     const signoutButtons = [...document.querySelectorAll('[data-signout]')];
-    const storageKey = 'paulas-place-dashboard-unlocked';
+    const storageKey = 'welsh-energy-dashboard-unlocked';
 
     function unlock() {
       gate.hidden = true;

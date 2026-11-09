@@ -1,4 +1,4 @@
-# Welsh energy notebook
+# Welsh Energy
 
 ### [Visit the live site ↗](https://tidyweb.github.io/welsh-energy-dashboard/)
 
