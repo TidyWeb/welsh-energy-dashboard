@@ -1,11 +1,13 @@
-# Paula’s Place energy notebook
+# Welsh energy notebook
 
-### [Visit the live site ↗](https://tidyweb.github.io/paulas-place-energy-dashboard/)
+### [Visit the live site ↗](https://tidyweb.github.io/welsh-energy-dashboard/)
+
+## PASSWORD = demo
 
 
 A static, responsive dashboard for comparing provisional solar, battery and air-to-water heat-pump scenarios. No build step, account, API key or publication is needed.
 
-The entry page has a simple client-side review-password gate, matching the Paula’s Place palette and using the supplied Borth-y-Gest image as a recognisable, softly blurred background. After unlocking, choose the complex dashboard or the simpler `/simple/` view. Both routes link to each other, and each dashboard has a Back to sign-in control that clears the current browser session. This is a privacy screen, not high-security authentication.
+The entry page has a simple client-side review-password gate, matching the existing palette and using the supplied Borth-y-Gest image as a recognisable, softly blurred background. After unlocking, choose the complex dashboard or the simpler `/simple/` view. Both routes link to each other, and each dashboard has a Back to sign-in control that clears the current browser session. This is a privacy screen, not high-security authentication.
 
 ## Run locally
 
