@@ -4,9 +4,9 @@ This note separates the user’s current provisional property inputs from earlie
 
 ## Property location and roof direction
 
-The current request names **2 Mersey Street, Borth-y-Gest**, with front anchor **A: 52.91556, −4.13733**, provisional rear point **B: 52.91570, −4.13754**, provisional front roof area **18 m²**, and tentative front aspect **138° clockwise from true north**. These current inputs take precedence for the dashboard’s property markers and editable assumptions. A and B are not measured building corners or a roof-area survey.
+The current request identifies the planning area as **Borth-y-Gest, North Wales**. The dashboard’s roof geometry and mapped working anchors remain provisional planning assumptions, not measured building corners or a roof-area survey.
 
-Earlier files use two different resource points: NASA POWER uses **52.9152, −4.1377** (village-centre/regional screening), while the saved PVGIS model uses **52.912431, −4.147339** (approximate postcode point). Neither should be presented as the surveyed position of number 2. The previous number-5 Mersey Street map tab was explicitly identified as incorrect for this project.
+Earlier files use two different resource points: NASA POWER uses **52.9152, −4.1377** (village-centre/regional screening), while the saved PVGIS model uses **52.912431, −4.147339** (approximate postcode point). Neither should be presented as a surveyed property position. An earlier Mersey Street map tab was explicitly identified as incorrect for this project.
 
 The existing PVGIS optimum is approximately **38° tilt and 2° PVGIS aspect**, essentially south-facing. PVGIS aspect uses south = 0°, east = −90° and west = +90°; the requested 138° compass bearing corresponds to approximately **−42° PVGIS aspect**. The saved south-facing hourly series is therefore an orientation reference, not a measured or newly queried southeast-facing front-roof series. Any adjustment made for the proposed front roof must be identified as an approximation until PVGIS is rerun for the actual roof and horizon.
 
