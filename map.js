@@ -53,6 +53,8 @@ export function initMap() {
   const dateInput = document.getElementById('sun-date');
   const timeInput = document.getElementById('sun-time');
   const readout = document.getElementById('sun-readout');
+  const playButton = document.getElementById('sun-play');
+  let playbackTimer = null;
   const setStatus = message => { if (status) status.textContent = message; };
   if (!host) return { setGround() {}, reset() {} };
   if (!window.L) {
@@ -118,6 +120,57 @@ export function initMap() {
   });
   if (dateInput) dateInput.value = dateInput.value || DEFAULT_DATE;
   if (timeInput) timeInput.value = timeInput.value || DEFAULT_TIME;
+  function setSunTime(date) {
+    if (!dateInput || !timeInput || !Number.isFinite(date.getTime())) return;
+    dateInput.value = date.toISOString().slice(0, 10);
+    timeInput.value = `${String(date.getUTCHours()).padStart(2, '0')}:${String(date.getUTCMinutes()).padStart(2, '0')}`;
+    updateSun();
+  }
+  function stopSunPlayback() {
+    if (playbackTimer !== null) window.clearInterval(playbackTimer);
+    playbackTimer = null;
+    if (playButton) {
+      playButton.setAttribute('aria-pressed', 'false');
+      playButton.innerHTML = '<span aria-hidden="true">▶</span> Play from sunrise';
+    }
+  }
+  function findSunrise(dateValue) {
+    if (!dateValue || !Number.isFinite(new Date(`${dateValue}T00:00:00Z`).getTime())) return null;
+    let previous = null;
+    for (let minute = 0; minute < 1440; minute += 1) {
+      const date = new Date(`${dateValue}T${String(Math.floor(minute / 60)).padStart(2, '0')}:${String(minute % 60).padStart(2, '0')}:00Z`);
+      const position = solarPosition(date);
+      if (previous && previous.altitude <= 0 && position.altitude > 0) return date;
+      previous = position;
+    }
+    return null;
+  }
+  function startSunPlayback() {
+    if (!dateInput || !timeInput) return;
+    const dateValue = dateInput.value;
+    const sunrise = findSunrise(dateValue);
+    if (!sunrise) {
+      if (readout) readout.textContent = 'Sunrise could not be found for this date.';
+      return;
+    }
+    setSunTime(sunrise);
+    const playbackDate = dateInput.value;
+    if (playButton) {
+      playButton.setAttribute('aria-pressed', 'true');
+      playButton.innerHTML = '<span aria-hidden="true">Ⅱ</span> Pause';
+    }
+    playbackTimer = window.setInterval(() => {
+      const current = new Date(`${dateInput.value}T${timeInput.value}:00Z`);
+      const next = new Date(current.getTime() + 60 * 60 * 1000);
+      if (!Number.isFinite(current.getTime()) || next.toISOString().slice(0, 10) !== playbackDate) {
+        stopSunPlayback();
+        return;
+      }
+      setSunTime(next);
+      const position = solarPosition(next);
+      if (position && position.altitude <= 0) stopSunPlayback();
+    }, 1000);
+  }
   function updateSun() {
     const dateValue = dateInput?.value || '';
     const timeValue = timeInput?.value || '';
@@ -136,8 +189,22 @@ export function initMap() {
     sunMarker.setLatLng(tip).setOpacity(isAbove ? 1 : 0.4).addTo(map);
     if (readout) readout.textContent = `${dateValue} · ${timeValue} UTC · Bearing ${position.azimuth.toFixed(0)}° from north · Solar altitude ${position.altitude.toFixed(1)}°${isAbove ? '' : ' · Below horizon'}. Approximate solar geometry only; not irradiance or a shading assessment.`;
   }
-  dateInput?.addEventListener('input', updateSun);
-  timeInput?.addEventListener('input', updateSun);
+  dateInput?.addEventListener('input', () => { stopSunPlayback(); updateSun(); });
+  timeInput?.addEventListener('input', () => { stopSunPlayback(); updateSun(); });
+  document.getElementById('sun-time-forward')?.addEventListener('click', () => {
+    stopSunPlayback();
+    const current = new Date(`${dateInput.value}T${timeInput.value}:00Z`);
+    if (Number.isFinite(current.getTime())) setSunTime(new Date(current.getTime() + 60 * 60 * 1000));
+  });
+  document.getElementById('sun-time-back')?.addEventListener('click', () => {
+    stopSunPlayback();
+    const current = new Date(`${dateInput.value}T${timeInput.value}:00Z`);
+    if (Number.isFinite(current.getTime())) setSunTime(new Date(current.getTime() - 60 * 60 * 1000));
+  });
+  playButton?.addEventListener('click', () => {
+    if (playbackTimer !== null) stopSunPlayback();
+    else startSunPlayback();
+  });
   document.getElementById('recenter-map')?.addEventListener('click', () => map.setView(A, 19));
   // Layout changes can otherwise leave unloaded grey strips in embedded previews.
   if (window.ResizeObserver) new ResizeObserver(() => map.invalidateSize()).observe(host);
@@ -148,6 +215,7 @@ export function initMap() {
       else if (map.hasLayer(groundMarker)) map.removeLayer(groundMarker);
     },
     reset() {
+      stopSunPlayback();
       if (map.hasLayer(satellite)) map.removeLayer(satellite);
       if (!map.hasLayer(street)) street.addTo(map);
       map.setView(A, 19);
